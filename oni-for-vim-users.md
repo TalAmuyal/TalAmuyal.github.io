@@ -4,6 +4,42 @@
 That means that out of the box, Oni is geared towards beginners.
 In this post I will supply configurations to remedy that and get a more traditional feel.
 
+## TL;DR
+
+The complete configs are at the bottom.
+
+## How it works
+
+Oni's configuration file is in practice a JavaScript file that it loads and runs on start.
+
+The file can have any JS code, but it requires that its `export` part be a dictionary.
+The keys are the name of the configs.
+For example, the following is a config file that only sets the font size:
+
+```js
+module.exports = {
+  "editor.fontSize": "14px",
+}
+```
+
+You can also run code on start using the `activate` configuration:
+
+```js
+const activate = (oni) => {
+  // Some complex confgs comes here
+}
+
+module.exports = {
+  activate,
+}
+```
+
+There is also the option to use a TypeScript (config.tsx) and thus gain auto-completion to the configuration file.
+If a TypeScript config file is used, Oni generates a Javascript counterpart and uses it.
+While this is neat, I currently don't use it as it requires platform-specific snippets.
+
+## The complete configs
+
 The recommended configs (can be copy-pasted):
 
 ```js
